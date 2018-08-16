@@ -10,15 +10,6 @@
 ✔  comparison to other player 
 ✔  rebuild layout (no transparency)
 
-✘  add async requesting
-✘  wrong input protection
-✘  empty input protection
-✘  wrong league protection
-✘  too many requests protection
-✘  server problems protection
-✘  add possibility to chose specific character if player has more than one
 ✘  add timer 
-✘  if server is not responding player can't even run program !!
-
 
 ✔✘ ✓✗ 

@@ -26,6 +26,10 @@ namespace DataProcessing
             InitializeComponent();
 
             // Try loading leagues when player is turning on app
+            // Disable player character selection comboBox and start tracking button
+
+            playerCharacters_comboBox.IsEnabled = false;
+            startTrackingButton.IsEnabled = false;
 
             try
             {
@@ -53,21 +57,37 @@ namespace DataProcessing
         private void GetDataButton_Click(object sender, RoutedEventArgs e)
         {
             // Get data from Player IGN textBox
-
             string playerIGN = playerIGN_textbox.Text;
 
             // Get data from Player league comboBox
-
             string leagueName = Convert.ToString(leagueName_comboBox.SelectedItem);
 
-            // Adding player characters to comboBox
-
-            var currentPlayer = GetDataFromApi.GetPlayerData(playerIGN, leagueName);
-            for ( int i = 0; i < currentPlayer.Entries.Count(); i++)
+            if (string.IsNullOrWhiteSpace(playerIGN) || string.IsNullOrWhiteSpace(leagueName))
             {
-                playerCharacters_comboBox.Items.Add($"{currentPlayer.Entries[i].Character.Name} ({currentPlayer.Entries[i].Character.Class})");
+                MessageBox.Show("Please check your Player IGN and League field");
             }
+            else
+            {
+                // Adding player characters to comboBox
 
+                var currentPlayer = GetDataFromApi.GetPlayerData(playerIGN, leagueName);
+                for (int i = 0; i < currentPlayer.Entries.Count(); i++)
+                {
+                    if (currentPlayer.Entries[i].Dead == true)
+                    {
+                        playerCharacters_comboBox.Items.Add($"{currentPlayer.Entries[i].Character.Name} ({currentPlayer.Entries[i].Character.Class}) DEAD");
+                    }
+                    else
+                    {
+                        playerCharacters_comboBox.Items.Add($"{currentPlayer.Entries[i].Character.Name} ({currentPlayer.Entries[i].Character.Class})");
+                    }
+                }
+
+                // After receiving player characters, allow user to select character and start tracking
+
+                playerCharacters_comboBox.IsEnabled = true;
+                startTrackingButton.IsEnabled = true;
+            }
         }
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
