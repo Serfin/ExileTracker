@@ -1,0 +1,60 @@
+﻿<Window x:Class="DataProcessing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataProcessing"
+        mc:Ignorable="d"
+        Title="Exile Tracker" Height="400" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+
+        <!-- Player IGN -->
+        <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" Content="Player IGN" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="3" x:Name="playerIGN_textbox" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+        <!-- Player league -->
+        <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="5" Content="Player league" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <ComboBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="7" x:Name="leagueName_comboBox" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button Grid.Column="4" Grid.Row="7" FontSize="15" Content="⟳" Margin="1" BorderThickness="1" Click="RefreshButton_Click"/>
+
+        <!-- Get player data -->
+        <Button Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="9" Content="Get player data" Click="GetDataButton_Click" BorderBrush="#FFFFC500"/>
+
+        <!-- Player characters -->
+        <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="13" Content="Player characters" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ComboBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="15" x:Name="playerCharacters_comboBox" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="17" Content="Start tracking" BorderBrush="Red" Click="StartTrackingButton_Click"/>
+
+    </Grid>
+</Window>
