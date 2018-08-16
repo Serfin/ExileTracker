@@ -80,23 +80,23 @@ namespace DataProcessing
                 playerAboveExp = currentPlayer.Entries[_playerCharacter].Character.Experience - playerBehindAndAbove.Entries[0].Character.Experience;
 
 
-            // playerClass
-            // playerCharacter
-            // playerLeague
-            // playerGlobalRank
-            string s_playerGlobalRank;
-            // playerClassRank
-            string s_playerClassRank;
-            // playerLevel
-            string s_playerLevel;
-            // playerExperience
-            string s_playerExperience;
-            // playerPercentageExperience
-            string s_playerPercentageExperience;
-            // playerAboveExp
-            string s_playerAboveExp;
-            // playerBehindExp
-            string s_playerbehindExp;
+            //// playerClass
+            //// playerCharacter
+            //// playerLeague
+            //// playerGlobalRank
+            //string s_playerGlobalRank;
+            //// playerClassRank
+            //string s_playerClassRank;
+            //// playerLevel
+            //string s_playerLevel;
+            //// playerExperience
+            //string s_playerExperience;
+            //// playerPercentageExperience
+            //string s_playerPercentageExperience;
+            //// playerAboveExp
+            //string s_playerAboveExp;
+            //// playerBehindExp
+            //string s_playerbehindExp;
         }
     }
 }

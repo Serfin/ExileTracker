@@ -54,7 +54,7 @@
         <!-- Player characters -->
         <Label Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="13" Content="Player characters" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ComboBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="15" x:Name="playerCharacters_comboBox" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="17" Content="Start tracking" BorderBrush="Red" Click="StartTrackingButton_Click"/>
+        <Button Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="17" x:Name="startTrackingButton" Content="Start tracking" BorderBrush="Red" Click="StartTrackingButton_Click"/>
 
     </Grid>
 </Window>
