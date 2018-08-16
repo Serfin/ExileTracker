@@ -68,7 +68,8 @@ namespace DataProcessing
             }
             else
             {
-                // Adding player characters to comboBox
+                // Adding player characters to clear comboBox
+                playerCharacters_comboBox.Items.Clear();
 
                 var currentPlayer = GetDataFromApi.GetPlayerData(playerIGN, leagueName);
                 for (int i = 0; i < currentPlayer.Entries.Count(); i++)
@@ -103,12 +104,19 @@ namespace DataProcessing
 
         private void StartTrackingButton_Click(object sender, RoutedEventArgs e)
         {
-            DataProcessor dataProcessor = new DataProcessor
-            (   
-                playerIGN_textbox.Text, 
-                leagueName_comboBox.SelectedItem.ToString(), 
-                playerCharacters_comboBox.SelectedIndex
-            );
+            if (string.IsNullOrWhiteSpace(playerCharacters_comboBox.Text))
+            {
+                MessageBox.Show("Select character from player characters list");
+            }
+            else
+            {
+                DataProcessor dataProcessor = new DataProcessor
+                (
+                    playerIGN_textbox.Text,
+                    leagueName_comboBox.SelectedItem.ToString(),
+                    playerCharacters_comboBox.SelectedIndex
+                );
+            }
         }
     }
 }
