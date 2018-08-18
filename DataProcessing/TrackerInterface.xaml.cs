@@ -35,14 +35,29 @@ namespace DataProcessing
         {
             InitializeComponent();
 
+            // Select player ascendancy avatar
             ascendancyAvatar.Source = ImageProcessor.CheckPlayerClass(playerClass);
+
+            // Set player name
             playerName_Label.Content = playerCharacter;
+
+            // Set player league
             leagueName_Label.Content = playerLeague;
+
+            // Set player name
             playerLvl_Label.Content = "LVL " + playerLevel;
+
+            // Set class rank
             playerClassRank_Label.Content = playerClassRank;
+
+            // Set global rank
             playerGlobalRank_Label.Content = playerGlobalRank;
+
+            // Set player experience
             playerExperience_Label.Content = $"{playerExperience}/{ExperienceTable.level[playerLevel]} ({playerPercentageExperience}%)";
 
+            // Set player experience compared to player above/behind
+            // If player rank is 1 , swap "Exp to rank x" with "Rank 1"
             if (playerGlobalRank == 1)
             {
                 expToRankXAbove.Content = $"RANK {playerGlobalRank}";
