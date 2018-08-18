@@ -73,6 +73,7 @@ namespace DataProcessing
                 playerExpToRankBehind_Label.Content = playerBehindExp;
             }
         }
+        // Allows user to move TrackerInterface
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
