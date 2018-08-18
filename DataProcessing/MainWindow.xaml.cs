@@ -110,12 +110,13 @@ namespace DataProcessing
             }
             else
             {
-                DataProcessor dataProcessor = new DataProcessor
-                (
-                    playerIGN_textbox.Text,
-                    leagueName_comboBox.SelectedItem.ToString(),
-                    playerCharacters_comboBox.SelectedIndex
-                );
+                DataProcessor dataProcessor = new DataProcessor();
+                dataProcessor.ProcessData
+                    (
+                        playerIGN_textbox.Text,
+                        leagueName_comboBox.SelectedItem.ToString(),
+                        playerCharacters_comboBox.SelectedIndex
+                    );
             }
         }
     }
