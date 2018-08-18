@@ -62,9 +62,13 @@ namespace DataProcessing
             // Get data from Player league comboBox
             string leagueName = Convert.ToString(leagueName_comboBox.SelectedItem);
 
-            if (string.IsNullOrWhiteSpace(playerIGN) || string.IsNullOrWhiteSpace(leagueName))
+            if (string.IsNullOrWhiteSpace(playerIGN) || playerIGN.StartsWith(" ") || string.IsNullOrWhiteSpace(leagueName))
             {
-                MessageBox.Show("Please check your Player IGN and League field");
+                MessageBox.Show("Please check your Player IGN");
+            }
+            else if (string.IsNullOrWhiteSpace(leagueName))
+            {
+                MessageBox.Show("Please check your League field");
             }
             else
             {
