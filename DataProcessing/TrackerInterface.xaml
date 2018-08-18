@@ -24,8 +24,8 @@
         <Label x:Name="playerClassRank_Label" FontFamily="Fontin" FontSize="26" Content="---" Foreground="White" Grid.Column="1" Grid.Row="10" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label x:Name="playerGlobalRank_Label" FontFamily="Fontin" FontSize="26" Content="---" Foreground="White" Grid.Column="3" Grid.Row="10" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label x:Name="playerExperience_Label" FontFamily="Fontin" FontSize="17" Content="---/--- (---%)" Foreground="White" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="13" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label x:Name="expToRankXAbove" Content="EXP TO RANK X" FontFamily="Fontin" Foreground="White" Grid.Column="1" Grid.Row="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label x:Name="expToRankXBehind" Content="EXP TO RANK X" FontFamily="Fontin" Foreground="White" Grid.Column="3" Grid.Row="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="expToRankXAbove" Content="EXP TO RANK X" FontSize="11" FontFamily="Fontin" Foreground="White" Grid.Column="1"  Grid.Row="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="expToRankXBehind" Content="EXP TO RANK X" FontSize="11" FontFamily="Fontin" Foreground="White" Grid.Column="3" Grid.Row="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label x:Name="playerExpToRankAbove_Label" Content="-14,4MLN" FontSize="15" FontFamily="Fontin" Foreground="Red" Grid.Column="1" Grid.Row="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Label x:Name="playerExpToRankBehind_Label" Content="14,4MLN" FontSize="15" FontFamily="Fontin" Foreground="Lime" Grid.Column="3" Grid.Row="17" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 

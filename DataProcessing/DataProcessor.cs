@@ -26,18 +26,45 @@ namespace DataProcessing
             int playerGlobalRank = currentPlayer.Entries[_playerCharacter].Rank;
 
             // Player class rank
-            var playersAbove = GetDataFromApi.GetPlayersAboveData(_leagueName, currentPlayer.Entries[_playerCharacter].Rank);
+            const int maxLimit = 200;
+            int _offset = 0;
             int playerClassRank = 0;
 
             // Checking players class above selected player, if they are playing same class , add it to counter (playerClassRank)
 
-            for (int i = 0; i < currentPlayer.Entries[_playerCharacter].Rank; i++)
+            void checkPlayerClassRank(int globalRank)
             {
-                if (playersAbove.Entries[i].Character.Class == currentPlayer.Entries[_playerCharacter].Character.Class)
+                if (globalRank <= maxLimit)
                 {
-                    playerClassRank++;
+                    var playersAbove = GetDataFromApi.GetPlayersAboveData(playerLeague, globalRank, _offset);
+
+                    for (int i = 0; i < globalRank; i++)
+                    {
+                        if (playersAbove.Entries[i].Character.Class == currentPlayer.Entries[_playerCharacter].Character.Class)
+                        {
+                            playerClassRank++;
+                        }
+                    }
+                }
+                else if (globalRank > maxLimit)
+                {
+                    var playersAbove = GetDataFromApi.GetPlayersAboveData(playerLeague, maxLimit, _offset);
+                    _offset += 200;
+                    globalRank -= 200;
+
+                    for (int i = 0; i < 200; i++)
+                    {
+                        if (playersAbove.Entries[i].Character.Class == currentPlayer.Entries[_playerCharacter].Character.Class)
+                        {
+                            playerClassRank++;
+                        }
+                    }
+
+                    checkPlayerClassRank(globalRank);
                 }
             }
+
+            checkPlayerClassRank(playerGlobalRank);
 
             // Player level
             int playerLevel = currentPlayer.Entries[_playerCharacter].Character.Level;

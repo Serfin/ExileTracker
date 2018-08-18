@@ -40,9 +40,9 @@ namespace DataProcessing
         /// <param name="limit"></param>
         /// <returns></returns>
 
-        public static RootObject GetPlayersAboveData(string leagueName, int limit)
+        public static RootObject GetPlayersAboveData(string leagueName, int limit, int offset)
         {
-            string url = $"http://api.pathofexile.com/ladders/{leagueName}?offset=0&limit={limit}";
+            string url = $"http://api.pathofexile.com/ladders/{leagueName}?offset={offset}&limit={limit}";
             var client = new WebClient();
             var json = client.DownloadString(url);
             RootObject result = JsonConvert.DeserializeObject<RootObject>(json);
