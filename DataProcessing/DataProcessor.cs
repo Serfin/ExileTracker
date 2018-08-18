@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataProcessing
 {
-    class DataProcessor
+    public class DataProcessor
     {
-        public DataProcessor(string _playerIGN, string _leagueName, int _playerCharacter)
+        public void ProcessData(string _playerIGN, string _leagueName, int _playerCharacter)
         {
             // API request
             var currentPlayer = GetDataFromApi.GetPlayerData(_playerIGN, _leagueName);
@@ -31,7 +31,7 @@ namespace DataProcessing
 
             // Checking players class above selected player, if they are playing same class , add it to counter (playerClassRank)
 
-            for ( int i = 0; i < currentPlayer.Entries[_playerCharacter].Rank; i++)
+            for (int i = 0; i < currentPlayer.Entries[_playerCharacter].Rank; i++)
             {
                 if (playersAbove.Entries[i].Character.Class == currentPlayer.Entries[_playerCharacter].Character.Class)
                 {
@@ -79,24 +79,21 @@ namespace DataProcessing
             else
                 playerAboveExp = currentPlayer.Entries[_playerCharacter].Character.Experience - playerBehindAndAbove.Entries[0].Character.Experience;
 
+            TrackerInterface trackerInterface = new TrackerInterface
+                (
+                    playerClass,
+                    playerCharacter,
+                    playerLeague,
+                    playerGlobalRank,
+                    playerClassRank,
+                    playerLevel,
+                    playerExperience,
+                    playerPercentageExperience,
+                    playerAboveExp,
+                    playerBehindExp
+                );
 
-            //// playerClass
-            //// playerCharacter
-            //// playerLeague
-            //// playerGlobalRank
-            //string s_playerGlobalRank;
-            //// playerClassRank
-            //string s_playerClassRank;
-            //// playerLevel
-            //string s_playerLevel;
-            //// playerExperience
-            //string s_playerExperience;
-            //// playerPercentageExperience
-            //string s_playerPercentageExperience;
-            //// playerAboveExp
-            //string s_playerAboveExp;
-            //// playerBehindExp
-            //string s_playerbehindExp;
+            trackerInterface.Show();
         }
     }
 }
