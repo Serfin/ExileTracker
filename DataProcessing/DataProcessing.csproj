@@ -58,8 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataProcessor.cs" />
-    <Compile Include="ExperienceTable.cs" />
+    <Compile Include="Data Handler\DataProcessor.cs" />
+    <Compile Include="API\DeserializeClassModel\PlayerAboveStructure.cs" />
+    <Compile Include="Helpers\ExperienceTable.cs" />
     <Compile Include="TrackerInterface.xaml.cs">
       <DependentUpon>TrackerInterface.xaml</DependentUpon>
     </Compile>
@@ -67,13 +68,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="ImageProcessor.cs" />
-    <Compile Include="GetDataFromApi.cs" />
+    <Compile Include="Image Processing\ImageProcessor.cs" />
+    <Compile Include="API\GetDataFromApi.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DeserializeClassModel\LeagueDataStructure.cs" />
+    <Compile Include="API\DeserializeClassModel\LeagueDataStructure.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -84,7 +85,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeserializeClassModel\PlayerDataStructure.cs" />
+    <Compile Include="API\DeserializeClassModel\PlayerDataStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -115,27 +116,27 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ascendancy Avatars\duelist_champion_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\duelist_gladiator_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\duelist_slayer_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\duelist_champion_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\duelist_gladiator_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\duelist_slayer_ascendancy.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ascendancy Avatars\marauder_berserker_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\marauder_chieftain_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\marauder_juggernaut_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\ranger_deadeye_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\ranger_pathfinder_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\ranger_raider_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\scion_ascendant_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\shadow_assassin_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\shadow_saboteur_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\shadow_trickster_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\templar_guardian_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\templar_hierophant_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\templar_inquisitor_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\witch_elementalist_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\witch_necromancer_ascendancy.png" />
-    <Resource Include="Ascendancy Avatars\witch_occultist_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\marauder_berserker_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\marauder_chieftain_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\marauder_juggernaut_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\ranger_deadeye_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\ranger_pathfinder_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\ranger_raider_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\scion_ascendant_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\shadow_assassin_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\shadow_saboteur_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\shadow_trickster_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\templar_guardian_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\templar_hierophant_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\templar_inquisitor_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\witch_elementalist_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\witch_necromancer_ascendancy.png" />
+    <Resource Include="Image Processing\Ascendancy Avatars\witch_occultist_ascendancy.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="UI Graphics\ExileTracker_border.png" />

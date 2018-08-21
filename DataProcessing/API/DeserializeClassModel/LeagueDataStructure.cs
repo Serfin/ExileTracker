@@ -9,7 +9,6 @@ namespace DataProcessing
     public class LeagueData
     {
         public string Id { get; set; }
-        public string Url { get; set; }
         public string StartAt { get; set; }
         public string EndAt { get; set; }
     }
