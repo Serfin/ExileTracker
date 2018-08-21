@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using DataProcessing.DeserializeClassModel;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,12 @@ namespace DataProcessing
         /// Deserialized object with player data
         /// </returns>
 
-        public static RootObject GetPlayerData(string IGN, string leagueName)
+        public static PlayerDataRootObject GetPlayerData(string IGN, string leagueName)
         {
             string url = $"http://api.pathofexile.com/ladders/{leagueName}?limit=1&accountName={IGN}";
             var client = new WebClient();
             var json = client.DownloadString(url);
-            RootObject result = JsonConvert.DeserializeObject<RootObject>(json);
+            PlayerDataRootObject result = JsonConvert.DeserializeObject<PlayerDataRootObject>(json);
 
             return result;
         }
@@ -40,12 +41,12 @@ namespace DataProcessing
         /// <param name="limit"></param>
         /// <returns></returns>
 
-        public static RootObject GetPlayersAboveData(string leagueName, int limit, int offset)
+        public static PlayerAboveRootObject GetPlayersAboveData(string leagueName, int limit, int offset)
         {
             string url = $"http://api.pathofexile.com/ladders/{leagueName}?offset={offset}&limit={limit}";
             var client = new WebClient();
             var json = client.DownloadString(url);
-            RootObject result = JsonConvert.DeserializeObject<RootObject>(json);
+            PlayerAboveRootObject result = JsonConvert.DeserializeObject<PlayerAboveRootObject>(json);
 
             return result;
         }
@@ -57,12 +58,12 @@ namespace DataProcessing
         /// <param name="offset"></param>
         /// <returns></returns>
 
-        public static RootObject GetDataOfPlayerAboveAndBehind(string leagueName, int offset)
+        public static PlayerDataRootObject GetDataOfPlayerAboveAndBehind(string leagueName, int offset)
         {
             string url = $"http://api.pathofexile.com/ladders/{leagueName}?offset={offset}&limit=3";
             var client = new WebClient();
             var json = client.DownloadString(url);
-            RootObject result = JsonConvert.DeserializeObject<RootObject>(json);
+            PlayerDataRootObject result = JsonConvert.DeserializeObject<PlayerDataRootObject>(json);
 
             return result;
         }
