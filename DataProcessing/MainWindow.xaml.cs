@@ -45,7 +45,7 @@ namespace DataProcessing
             // Get all main league from API, loop through array containing
             // league ID's and add them to comboBox
 
-            var leagueDataResult = GetDataFromApi.GetLeagueData();
+            var leagueDataResult = ApiDataHandler.GetLeagueData();
 
             leagueName_comboBox.Items.Clear();
 
@@ -75,7 +75,7 @@ namespace DataProcessing
                 // Adding player characters to clear comboBox
                 playerCharacters_comboBox.Items.Clear();
 
-                var currentPlayer = GetDataFromApi.GetPlayerData(playerIGN, leagueName);
+                var currentPlayer = ApiDataHandler.GetPlayerData(playerIGN, leagueName);
                 for (int i = 0; i < currentPlayer.Entries.Count(); i++)
                 {
                     if (currentPlayer.Entries[i].Dead == true)

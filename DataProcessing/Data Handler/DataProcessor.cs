@@ -11,7 +11,7 @@ namespace DataProcessing
         public void ProcessData(string _playerIGN, string _leagueName, int _playerCharacter)
         {
             // API request
-            var currentPlayer = GetDataFromApi.GetPlayerData(_playerIGN, _leagueName);
+            var currentPlayer = ApiDataHandler.GetPlayerData(_playerIGN, _leagueName);
 
             // Player class
             string playerClass = currentPlayer.Entries[_playerCharacter].Character.Class;
@@ -36,7 +36,7 @@ namespace DataProcessing
             {
                 if (globalRank <= maxLimit)
                 {
-                    var playersAbove = GetDataFromApi.GetPlayersAboveData(playerLeague, globalRank, _offset);
+                    var playersAbove = ApiDataHandler.GetPlayersAboveData(playerLeague, globalRank, _offset);
 
                     for (int i = 0; i < globalRank; i++)
                     {
@@ -48,7 +48,7 @@ namespace DataProcessing
                 }
                 else if (globalRank > maxLimit)
                 {
-                    var playersAbove = GetDataFromApi.GetPlayersAboveData(playerLeague, maxLimit, _offset);
+                    var playersAbove = ApiDataHandler.GetPlayersAboveData(playerLeague, maxLimit, _offset);
                     _offset += 200;
                     globalRank -= 200;
 
@@ -94,7 +94,7 @@ namespace DataProcessing
                     break;
             }
 
-            var playerBehindAndAbove = GetDataFromApi.GetDataOfPlayerAboveAndBehind(_leagueName, offset);
+            var playerBehindAndAbove = ApiDataHandler.GetDataOfPlayerAboveAndBehind(_leagueName, offset);
 
             double playerBehindExp = playerExperience - playerBehindAndAbove.Entries[2].Character.Experience;
             double playerAboveExp;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataProcessing
 {
-    public class GetDataFromApi
+    public class ApiDataHandler
     {
         /// <summary>
         /// Sending request to API with params

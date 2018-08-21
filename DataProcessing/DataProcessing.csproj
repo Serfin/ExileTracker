@@ -69,7 +69,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Image Processing\ImageProcessor.cs" />
-    <Compile Include="API\GetDataFromApi.cs" />
+    <Compile Include="API\ApiDataHandler.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
