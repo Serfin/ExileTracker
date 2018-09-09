@@ -8,15 +8,15 @@ namespace DataProcessing
 {
     internal static class ExperienceTable
     {
-        internal static long[] level = new long[101] 
+        internal static long[] level = new long[100] 
         {
-            0,
-            525,
-            1760,
-            3781,
-            7184,
-            12186,
-            19324,
+            0,//1
+            525,//2
+            1760,//3
+            3781,//4
+            7184,//5
+            12186,//6
+            19324,//7
             29377,
             43181,
             61693,
@@ -110,7 +110,6 @@ namespace DataProcessing
             3638186694,//98
             3932818530,//99
             4250334444,//100
-            4250334444
         };
     }
 }

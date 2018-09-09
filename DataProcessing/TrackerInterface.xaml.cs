@@ -54,7 +54,14 @@ namespace DataProcessing
             playerGlobalRank_Label.Content = playerGlobalRank;
 
             // Set player experience
-            playerExperience_Label.Content = $"{playerExperience}/{ExperienceTable.level[playerLevel]} ({playerPercentageExperience}%)";
+            if (playerLevel != 100)
+            {
+                playerExperience_Label.Content = $"{playerExperience}/{ExperienceTable.level[playerLevel]} ({playerPercentageExperience}%)";
+            }
+            else
+            {
+                playerExperience_Label.Content = $"{playerExperience}/{playerExperience} ({playerPercentageExperience}%)";
+            }
 
             // Set player experience compared to player above/behind
             // If player rank is 1 , swap "Exp to rank x" with "Rank 1"
@@ -69,7 +76,7 @@ namespace DataProcessing
             {
                 expToRankXAbove.Content = $"EXP TO RANK {playerGlobalRank - 1}";
                 playerExpToRankAbove_Label.Content = playerAboveExp;
-                expToRankXBehind.Content = $"EXP TO RANK {playerGlobalRank + 1}"; 
+                expToRankXBehind.Content = $"EXP TO RANK {playerGlobalRank + 1}";
                 playerExpToRankBehind_Label.Content = playerBehindExp;
             }
         }
