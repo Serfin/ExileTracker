@@ -30,41 +30,41 @@ namespace DataProcessing
             int _offset = 0;
             int playerClassRank = 0;
 
-            // Checking players class above selected player, if they are playing same class , add it to counter (playerClassRank)
+            //// Checking players class above selected player, if they are playing same class , add it to counter (playerClassRank)
 
-            void checkPlayerClassRank(int globalRank)
-            {
-                if (globalRank <= maxLimit)
-                {
-                    var playersAbove = ApiDataHandler.GetPlayersAboveData(playerLeague, globalRank, _offset);
+            //void checkPlayerClassRank(int globalRank)
+            //{
+            //    if (globalRank <= maxLimit)
+            //    {
+            //        var playersAbove = ApiDataHandler.GetPlayersAboveData(playerLeague, globalRank, _offset);
 
-                    for (int i = 0; i < globalRank; i++)
-                    {
-                        if (playersAbove.Entries[i].Character.Class == currentPlayer.Entries[_playerCharacter].Character.Class)
-                        {
-                            playerClassRank++;
-                        }
-                    }
-                }
-                else if (globalRank > maxLimit)
-                {
-                    var playersAbove = ApiDataHandler.GetPlayersAboveData(playerLeague, maxLimit, _offset);
-                    _offset += 200;
-                    globalRank -= 200;
+            //        for (int i = 0; i < globalRank; i++)
+            //        {
+            //            if (playersAbove.Entries[i].Character.Class == currentPlayer.Entries[_playerCharacter].Character.Class)
+            //            {
+            //                playerClassRank++;
+            //            }
+            //        }
+            //    }
+            //    else if (globalRank > maxLimit)
+            //    {
+            //        var playersAbove = ApiDataHandler.GetPlayersAboveData(playerLeague, maxLimit, _offset);
+            //        _offset += 200;
+            //        globalRank -= 200;
 
-                    for (int i = 0; i < 200; i++)
-                    {
-                        if (playersAbove.Entries[i].Character.Class == currentPlayer.Entries[_playerCharacter].Character.Class)
-                        {
-                            playerClassRank++;
-                        }
-                    }
+            //        for (int i = 0; i < 200; i++)
+            //        {
+            //            if (playersAbove.Entries[i].Character.Class == currentPlayer.Entries[_playerCharacter].Character.Class)
+            //            {
+            //                playerClassRank++;
+            //            }
+            //        }
 
-                    checkPlayerClassRank(globalRank);
-                }
-            }
+            //        checkPlayerClassRank(globalRank);
+            //    }
+            //}
 
-            checkPlayerClassRank(playerGlobalRank);
+            //checkPlayerClassRank(playerGlobalRank);
 
             // Player level
             int playerLevel = currentPlayer.Entries[_playerCharacter].Character.Level;
@@ -72,8 +72,17 @@ namespace DataProcessing
             // Player experience
             double playerExperience = currentPlayer.Entries[_playerCharacter].Character.Experience;
 
-            //Player % exp , rounded to two decimal places
-            double playerPercentageExperience = Math.Round(playerExperience / ExperienceTable.level[playerLevel] * 100, 2);
+            //Player % exp , rounded to two decimal places           
+            double gainedExp, expToGain, playerPercentageExperience;
+            if (playerLevel != 100)
+            {
+                gainedExp = playerExperience - ExperienceTable.level[playerLevel - 1];
+                expToGain = ExperienceTable.level[playerLevel] - ExperienceTable.level[playerLevel - 1];
+
+                playerPercentageExperience = Math.Round(gainedExp * 100 / expToGain, 2);
+            }
+            else
+                playerPercentageExperience = 100;
 
             // Player exp compared to player above/behind
             // Calculating player offset -> 1.playerAbove 2.currentPlayer 3.playerBehind
@@ -95,8 +104,15 @@ namespace DataProcessing
             }
 
             var playerBehindAndAbove = ApiDataHandler.GetDataOfPlayerAboveAndBehind(_leagueName, offset);
-
-            double playerBehindExp = playerExperience - playerBehindAndAbove.Entries[2].Character.Experience;
+            double playerBehindExp;
+            if (playerGlobalRank == 1)
+            {
+                playerBehindExp = playerExperience - playerBehindAndAbove.Entries[1].Character.Experience;
+            }
+            else
+            {
+                playerBehindExp = playerExperience - playerBehindAndAbove.Entries[2].Character.Experience;
+            }
             double playerAboveExp;
 
             if (currentPlayer.Entries[_playerCharacter].Rank == 1)

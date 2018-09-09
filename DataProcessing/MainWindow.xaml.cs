@@ -27,7 +27,7 @@ namespace DataProcessing
 
             // Try loading leagues when player is turning on app
             // Disable player character selection comboBox and start tracking button
-
+            
             playerCharacters_comboBox.IsEnabled = false;
             startTrackingButton.IsEnabled = false;
 
@@ -62,7 +62,7 @@ namespace DataProcessing
             // Get data from Player league comboBox
             string leagueName = Convert.ToString(leagueName_comboBox.SelectedItem);
 
-            if (string.IsNullOrWhiteSpace(playerIGN) || playerIGN.StartsWith(" ") || string.IsNullOrWhiteSpace(leagueName))
+            if (string.IsNullOrWhiteSpace(playerIGN) || playerIGN.StartsWith(" "))
             {
                 MessageBox.Show("Please check your Player IGN");
             }
