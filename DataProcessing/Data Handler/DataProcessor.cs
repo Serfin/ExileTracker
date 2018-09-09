@@ -106,15 +106,25 @@ namespace DataProcessing
             }
 
             var playerBehindAndAbove = ApiDataHandler.GetDataOfPlayerAboveAndBehind(_leagueName, offset);
+
+            // If player rank equals one there is only player behind, it means that entries will contain only two object instead of default 3.
             double playerBehindExp;
+            
+            // SelectedPlayer[0] -> PlayerBehind[1]
+
             if (playerGlobalRank == 1)
             {
                 playerBehindExp = playerExperience - playerBehindAndAbove.Entries[1].Character.Experience;
             }
+            
+            // PlayerAbove[0] -> SelectedPlayer[1] -> PlayerBehind[2]
+
             else
             {
                 playerBehindExp = playerExperience - playerBehindAndAbove.Entries[2].Character.Experience;
             }
+
+            // Set playerAboveExp to 0 if player rank equals 1 because there's no player above.
             double playerAboveExp;
 
             if (currentPlayer.Entries[_playerCharacter].Rank == 1)
