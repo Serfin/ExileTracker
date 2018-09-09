@@ -82,7 +82,9 @@ namespace DataProcessing
                 playerPercentageExperience = Math.Round(gainedExp * 100 / expToGain, 2);
             }
             else
+            {
                 playerPercentageExperience = 100;
+            }
 
             // Player exp compared to player above/behind
             // Calculating player offset -> 1.playerAbove 2.currentPlayer 3.playerBehind
